@@ -15,7 +15,7 @@ name                     : &name "Your Name"
 description              : &description "personal description"
 url                      : "https://cj-hsieh.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
-repository               : "cj-hsieh/cj-hsieh.github.io"
+repository               : "CJ-Hsieh/CJ-Hsieh.github.io"
 
 # Site Author - The following control what appear as part of the author content on the side bar.
 #               If a field is blank the icon and link will not appear, otherwise it will be shown.
@@ -24,7 +24,7 @@ author:
   # Biographic information
   avatar           : "profile.png"
   name             : "Jerry"
-  pronouns         : # example: "he/his"  
+  pronouns         : "he/his"  
   bio              : "Hola"
   location         : "Taipei, Taiwan"
   employer         : "National Taiwan University"
