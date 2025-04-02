@@ -13,7 +13,7 @@ title                    : "Chieh-Ju Hsieh / Welcome!"
 title_separator          : "-"
 name                     : &name "Your Name"
 description              : &description "personal description"
-url                      : https://cj-hsieh.github.io 
+url                      : "https://cj-hsieh.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "cj-hsieh/cj-hsieh.github.io"
 
