@@ -9,50 +9,55 @@ redirect_from:
 
 {% include base_path %}
 
-# Chieh-Ju Hsieh
-Department of Atmospheric Sciences, National Taiwan University, Taipei, Taiwan  
-Email: jerry16787@gmail.com  
+Education
+======
+* M.S. in National Taiwan University
+* B.S. in GitHub, GitHub University, 2012
 
-## Education
-- **M.S. in Atmospheric Sciences** (in progress)  
-  - *National Taiwan University*  
-  - Advisor: Prof. Yen-Ting Hwang
-- **B.S. in Atmospheric Sciences**  
-  - *National Taiwan University*  
-  - Overall GPA: **3.81/4.30**
-    
-## Research Interests  
-- Tropical decadal variability  
-- Ocean-atmosphere interactions  
-- Tropics-extratropics interactions
+Work experience
+======
+* Spring 2024: Academic Pages Collaborator
+  * GitHub University
+  * Duties includes: Updates and improvements to template
+  * Supervisor: The Users
 
+* Fall 2015: Research Assistant
+  * GitHub University
+  * Duties included: Merging pull requests
+  * Supervisor: Professor Hub
 
-## Experience  
-
-### 2024  
-- **Teaching Assistant**, *Statistics with Meteorology Application* (Sep. 2024)  
-- **Dean’s List Award** (Top 5% GPA) (Jun. 2024)  
-
-### 2023  
-- **Independent Study** (Sep. 2023)  
-  - *Title:* The role of atmospheric and oceanic circulation in response to sea ice melt under asymmetric 4xCO₂ forcing  
-- **Honorable Mention Award**, Geological Society in Taiwan (May 2023)  
-  - *Title:* Stalagmite-inferred hydroclimate changes in southern Europe during Allerød/Younger Dryas transition  
-- **Poster Presentation at EGU (European Geosciences Union)** (Apr. 2023)  
-
-### 2022  
-- **Attending TAHOPE**, international observational project (Aug. 2022)  
-- **Honorable Mention Award**, Summer Program (Aug. 2022)  
-  - *Title:* The Impact of Surface Heterogeneity on the Evolution of Diurnal Convection  
-- **Attending Weather Hackathon Competition** (May 2022)  
+* Summer 2015: Research Assistant
+  * GitHub University
+  * Duties included: Tagging issues
+  * Supervisor: Professor Git
   
-## Skills  
-- Running numerical model simulations  
-- Analyzing model output using **Python, Matlab, GrADS**  
-- Native in **Mandarin**, fluent in **English**  
-
+Skills
+======
+* Skill 1
+* Skill 2
+  * Sub-skill 2.1
+  * Sub-skill 2.2
+  * Sub-skill 2.3
+* Skill 3
 
 Publications
 ======
-
+  <ul>{% for post in site.publications reversed %}
+    {% include archive-single-cv.html %}
+  {% endfor %}</ul>
   
+Talks
+======
+  <ul>{% for post in site.talks reversed %}
+    {% include archive-single-talk-cv.html  %}
+  {% endfor %}</ul>
+  
+Teaching
+======
+  <ul>{% for post in site.teaching reversed %}
+    {% include archive-single-cv.html %}
+  {% endfor %}</ul>
+  
+Service and leadership
+======
+* Currently signed in to 43 different slack teams
