@@ -8,13 +8,11 @@ image: /images/animation/fig_votemper_ano-9.5N-rev2.gif
 <style>
 .img-row {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
+  justify-content: space-between;  /* Aligns images side by side */
   gap: 1rem;
 }
 .img-row img {
-  max-width: 45%;
+  width: 48%;  /* Adjusts the width to fit both images side by side */
   height: auto;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -37,6 +35,7 @@ image: /images/animation/fig_votemper_ano-9.5N-rev2.gif
     <div class="caption">9.5°S temperature anomaly</div>
   </div>
 </div>
+
 
 ---
 
