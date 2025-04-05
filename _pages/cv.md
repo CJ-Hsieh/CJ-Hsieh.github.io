@@ -14,7 +14,6 @@ Department of Atmospheric Sciences, National Taiwan University, Taipei, Taiwan
 Email: jerry16787@gmail.com  
 
 ## Education
-======
 - **M.S. in Atmospheric Sciences** (in progress)  
   - *National Taiwan University*  
   - Advisor: Prof. Yen-Ting Hwang
