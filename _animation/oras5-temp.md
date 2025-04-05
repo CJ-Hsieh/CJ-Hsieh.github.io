@@ -1,10 +1,9 @@
 ---
+layout: animation-post
 title: "Temperature Anomalies"
 excerpt: "Zonal mean temperature anomalies around the equator (9.5°N and 9.5°S)"
 date: 2025-04-02
 image: /images/animation/fig_votemper_ano-9.5N-rev2.gif
-layout: animation-post
-permalink: /animation/temperature-anomalies/
 ---
 
 <style>
