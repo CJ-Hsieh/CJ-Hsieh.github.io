@@ -12,7 +12,7 @@ image: /images/animation/fig_votemper_ano-9.5N-rev2.gif
   gap: 1rem;
 }
 .img-row img {
-  width: 60%;  /* Increased width to make the images larger */
+  width: 100%;  /* Increased width to make the images larger */
   height: auto;
   border: 1px solid #ddd;
   border-radius: 8px;
