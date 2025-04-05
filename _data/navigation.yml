@@ -11,8 +11,8 @@ main:
   - title: "Publications"
     url: /publications/
 
-  - title: "Talks"
-    url: /talks/    
+  - title: "Animation"
+  url: /animation/ 
 
   - title: "Teaching"
     url: /teaching/    
@@ -32,5 +32,4 @@ main:
   - title: "Guide"
     url: /markdown/
 
-  - title: "Animation"
-  url: /animation/
+
