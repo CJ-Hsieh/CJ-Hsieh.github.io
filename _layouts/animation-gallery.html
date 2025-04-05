@@ -1,0 +1,56 @@
+---
+layout: default
+---
+
+<style>
+.animation-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  padding-top: 2rem;
+}
+.animation-card {
+  position: relative;
+  width: 300px;
+  overflow: hidden;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.animation-card:hover {
+  transform: scale(1.02);
+}
+.animation-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: 0.3s ease;
+}
+.card-overlay {
+  position: absolute;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  width: 100%;
+  padding: 1rem;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.animation-card:hover .card-overlay {
+  opacity: 1;
+}
+</style>
+
+<div class="animation-grid">
+  {% assign animations = site.pages | where: "layout", "animation-post" %}
+  {% for post in animations %}
+    <a href="{{ post.url | relative_url }}" class="animation-card">
+      <img src="{{ post.image }}" alt="{{ post.title }}">
+      <div class="card-overlay">
+        <h3 style="margin:0;">{{ post.title }}</h3>
+        <p style="margin:0.5rem 0 0;">{{ post.excerpt }}</p>
+      </div>
+    </a>
+  {% endfor %}
+</div>
