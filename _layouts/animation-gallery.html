@@ -44,6 +44,7 @@ layout: single
 
 <div class="animation-grid">
   {% assign animations = site.pages | where: "layout", "animation-post" %}
+  <p>動畫數量：{{ animations | size }}</p>  {# ← debug #}
   {% for post in animations %}
     <a href="{{ post.url | relative_url }}" class="animation-card">
       <img src="{{ post.image }}" alt="{{ post.title }}">
