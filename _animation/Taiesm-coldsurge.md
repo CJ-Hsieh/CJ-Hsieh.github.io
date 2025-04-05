@@ -2,8 +2,8 @@
 layout: animation-post
 title: "TaiESM Cold Surge"
 excerpt: "Wind and LTS anomalies at 925 hPa in TaiESM during a cold surge event."
-date: 2025-04-02
-image: https://drive.google.com/uc?export=view&id=1hAZfLhdOjbPg5_KPxNmrbxrEyJ8Opgt2
+date: 2025-04-06
+image: https://i.imgur.com/176kvVV.gif
 ---
 
 <style>
@@ -22,10 +22,10 @@ image: https://drive.google.com/uc?export=view&id=1hAZfLhdOjbPg5_KPxNmrbxrEyJ8Op
 
 <div class="img-row">
   <div>
-    <img src="https://drive.google.com/uc?export=view&id=1hAZfLhdOjbPg5_KPxNmrbxrEyJ8Opgt2" alt="NSS wind anomaly">
+    <img src="https://i.imgur.com/176kvVV.gif" alt="NSS wind anomaly">
   </div>
   <div>
-    <img src="https://drive.google.com/uc?export=view&id=1LWuAkSqZYVL0ybNkCX90jMkLdFVyoROc" alt="LTS wind anomaly">
+    <img src="https://i.imgur.com/x6uu4BM.gif" alt="LTS wind anomaly">
   </div>
 </div>
 
