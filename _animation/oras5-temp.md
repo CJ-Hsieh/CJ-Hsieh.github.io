@@ -12,27 +12,19 @@ image: /images/animation/fig_votemper_ano-9.5N-rev2.gif
   gap: 1rem;
 }
 .img-row img {
-  width: 48%;  /* Adjusts the width to fit both images side by side */
+  width: 60%;  /* Increased width to make the images larger */
   height: auto;
   border: 1px solid #ddd;
   border-radius: 8px;
-}
-.caption {
-  text-align: center;
-  font-size: 0.9rem;
-  color: #555;
-  margin-top: 0.5rem;
 }
 </style>
 
 <div class="img-row">
   <div>
     <img src="/images/animation/fig_votemper_ano-9.5N-rev2.gif" alt="9.5N temperature anomaly">
-    <div class="caption">9.5°N temperature anomaly</div>
   </div>
   <div>
     <img src="/images/animation/fig_votemper_ano-9.5S-rev2.gif" alt="9.5S temperature anomaly">
-    <div class="caption">9.5°S temperature anomaly</div>
   </div>
 </div>
 
