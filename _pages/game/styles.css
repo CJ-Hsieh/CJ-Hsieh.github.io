@@ -1,20 +1,21 @@
-/* 初始隱藏遊戲容器 */
-.hidden {
-  display: none;
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
 }
 
-#night-mode-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #333;
-  color: white;
-  border: none;
-  cursor: pointer;
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 20px;
+    cursor: pointer;
 }
 
-#night-mode-btn:hover {
-  background-color: #555;
+#game-container {
+    margin-top: 20px;
+    padding: 20px;
+    border: 2px solid #ccc;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    display: none; /* 初始隱藏 */
 }
