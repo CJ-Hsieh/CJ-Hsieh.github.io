@@ -3,20 +3,22 @@ layout: animation-post
 title: "TaiESM Cold Surge"
 excerpt: "Wind and LTS anomalies at 925 hPa in TaiESM during a cold surge event."
 date: 2025-04-06
-image: /images/animation/TaiESM_LTS_925hPa_wind-3.mp4
+image: /images/animation/screenshot_LTS.png
 ---
 
 <style>
-.img-row {
+.video-row {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: 1rem;
+  padding-top: 1rem;
 }
-.img-row img {
-  width: 20%;
+.video-row video {
+  width: 45%;
   height: auto;
+  border-radius: 10px;
   border: 1px solid #ddd;
-  border-radius: 8px;
 }
 </style>
 
