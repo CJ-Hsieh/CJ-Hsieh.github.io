@@ -3,7 +3,7 @@ layout: animation-post
 title: "TaiESM Cold Surge"
 excerpt: "Wind and LTS anomalies at 925 hPa in TaiESM during a cold surge event."
 date: 2025-04-06
-image: https://i.imgur.com/176kvVV.gif
+image: /images/animation/TaiESM_LTS_925hPa_wind-3.mp4
 ---
 
 <style>
@@ -20,13 +20,16 @@ image: https://i.imgur.com/176kvVV.gif
 }
 </style>
 
-<div class="img-row">
-  <div>
-    <img src="https://i.imgur.com/176kvVV.gif" alt="NSS wind anomaly">
-  </div>
-  <div>
-    <img src="https://i.imgur.com/x6uu4BM.gif" alt="LTS wind anomaly">
-  </div>
+<div class="video-row">
+  <video controls loop muted autoplay>
+    <source src="/images/animation/TaiESM_NSS_925hPa_wind-3.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <video controls loop muted autoplay>
+    <source src="/images/animation/TaiESM_LTS_925hPa_wind-3.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
 </div>
 
 ---
