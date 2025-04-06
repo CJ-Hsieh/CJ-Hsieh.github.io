@@ -1,23 +1,28 @@
+---
+layout: default
+title: "極地動物快逃"
+---
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Polar Animal Escape</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>極地動物快逃</title>
+    <link rel="stylesheet" href="/pages/game/styles.css">
 </head>
 <body>
-
-  <!-- 夜間模式按鈕 -->
-  <button id="night-mode-btn">Night Mode</button>
-
-  <!-- 遊戲內容，初始隱藏 -->
-  <div id="game-container" class="hidden">
     <h1>極地動物快逃</h1>
-    <p>遊戲內容...</p>
-    <!-- 這裡可以放你後續的遊戲邏輯 -->
-  </div>
+    <button id="night-mode-toggle">夜間模式</button>
+    <p>點擊五次後顯示遊戲內容</p>
 
-  <script src="game/script.js"></script>
+    <!-- 遊戲內容的容器，最初隱藏 -->
+    <div id="game-container" style="display: none;">
+        <h2>開始遊戲</h2>
+        <p>設定CO2、O3濃度，海冰面積等來調整遊戲難度！</p>
+        <!-- 這裡可以放置遊戲元素 -->
+    </div>
+
+    <script src="/pages/game/script.js"></script>
 </body>
 </html>
