@@ -13,7 +13,7 @@ image: /images/animation/TaiESM_LTS_925hPa_wind-3.mp4
   gap: 1rem;
 }
 .img-row img {
-  width: 100%;
+  width: 60%;
   height: auto;
   border: 1px solid #ddd;
   border-radius: 8px;
