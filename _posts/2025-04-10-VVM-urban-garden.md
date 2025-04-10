@@ -63,7 +63,7 @@ As cities expand:
 
 Why? The surface temperature and moisture contrast sets up **sea breeze-like circulations**, pulling air inward from grass to city.
 
-![Cloud and boundary layer development](your-image-path)
+![Cloud and boundary layer development](/images/post/VVM-urban/figure_qc_time_evolution.png)
 
 ---
 
@@ -84,6 +84,10 @@ Instead, the **atmosphere organizes around gradients** in heat and moisture, fav
 This research highlights how **land-atmosphere feedbacks** shape local rainfall.  
 In the future, climate models — and city planners — may need to consider not just *how* cities grow, but *how* they nudge the sky above them.
 
+figure_mse.png
+figure_wqv_wth.png
+figure_precip_gridpoint_2.png
+figure_precip_gridpoint.png
 ---
 
 📚 References:
