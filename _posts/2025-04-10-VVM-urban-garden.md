@@ -36,7 +36,7 @@ Then we tested:
 - Urban09 (a small city center)
 - Urban32 and Urban46 (increasing urban sprawl)
 
-![Experiment setup: Grass vs. concrete blocks](your-image-path)
+![Experiment setup: Grass vs. concrete blocks](/images/post/VVM-urban-garden/exp_setup.png)
 
 ---
 
@@ -48,7 +48,7 @@ Using the **Bowen ratio** — the balance between sensible and latent heat — w
 
 More urban = more sensible heat = stronger surface heating, but less moisture.
 
-![Bowen ratio: Latent vs. sensible heat](your-image-path)
+![Bowen ratio: Latent vs. sensible heat](/images/post/VVM-urban-garden/figure_wqv_wth.png)
 
 ---
 
@@ -63,7 +63,10 @@ As cities expand:
 
 Why? The surface temperature and moisture contrast sets up **sea breeze-like circulations**, pulling air inward from grass to city.
 
-![Cloud and boundary layer development](/images/post/VVM-urban/figure_qc_time_evolution.png)
+<div style="display: flex; gap: 10px;">
+  <img src="/images/post/VVM-urban-garden/figure_mse.png" alt="MSE and boundary layer" width="48%">
+  <img src="/images/post/VVM-urban-garden/figure_qc_time_evolution.png" alt="Cloud development over time" width="48%">
+</div>
 
 ---
 
@@ -75,8 +78,10 @@ The result?
 This behavior flips our intuition — it’s not "wet places get wetter."  
 Instead, the **atmosphere organizes around gradients** in heat and moisture, favoring convergence and upward motion over **urban cores**.
 
-![Rainfall and wind field on Day 10](your-image-path)
-
+<div style="display: flex; gap: 10px;">
+  <img src="/images/post/VVM-urban-garden/figure_precip_gridpoint.png" alt="Rainfall pattern" width="48%">
+  <img src="/images/post/VVM-urban-garden/figure_precip_gridpoint_2.png" alt="Wind and rain field" width="48%">
+</div>
 ---
 
 ## 🧠 Bigger Picture
@@ -84,10 +89,6 @@ Instead, the **atmosphere organizes around gradients** in heat and moisture, fav
 This research highlights how **land-atmosphere feedbacks** shape local rainfall.  
 In the future, climate models — and city planners — may need to consider not just *how* cities grow, but *how* they nudge the sky above them.
 
-figure_mse.png
-figure_wqv_wth.png
-figure_precip_gridpoint_2.png
-figure_precip_gridpoint.png
 ---
 
 📚 References:
