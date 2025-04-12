@@ -83,7 +83,9 @@ sst = ds['TEMP'].isel(z_t=0)
 ```
 
 </details>
-
+<p align="center">
+  <img src="/images/post/python-tools/sst_trend_robin.png" alt="SST trend" width="50%">
+</p>
 
 
 
