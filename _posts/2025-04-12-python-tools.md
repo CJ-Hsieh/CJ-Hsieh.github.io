@@ -11,9 +11,9 @@ tags:
 Some of the Python codes are attached to help process climate model data.
 
 ## Atmospheric data
-
+  ![Ocean driven over warming hole region](/images/post/Atl-WH/oai_ssp.png)
 <details>
-  
+
 <summary><strong>Walker circulation</strong></summary>
 
 ```python
@@ -26,8 +26,8 @@ print("Walker circulation diagnostics complete")
 ```
 </details> 
 
+  ![Ocean driven over warming hole region](/images/post/Atl-WH/oai_ssp.png)
 <details>
-  
 <summary><strong>Atmospheric data - Hadley circulation</strong></summary>
 
 ```python
