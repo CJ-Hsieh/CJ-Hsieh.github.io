@@ -16,12 +16,14 @@ Some of the Python codes are attached to help process climate model data.
 
 <summary><strong>Walker circulation</strong></summary>
 
-<pre><code class="language-python">
+```python
+# Walker circulation example code
 import xarray as xr
 import numpy as np
 
+# Placeholder for walker cell diagnostics
 print("Walker circulation diagnostics complete")
-</code></pre>
+```
 
 
 </details> 
