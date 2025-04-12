@@ -10,9 +10,11 @@ tags:
 
 Some of the Python codes are attached to help process climate model data.
 
+## Atmospheric data
+
 <details>
   
-<summary><strong>Atmospheric data - Walker circulation</strong></summary>
+<summary><strong>Walker circulation</strong></summary>
 
 ```python
 # Walker circulation example code
@@ -25,16 +27,23 @@ print("Walker circulation diagnostics complete")
 </details> 
 
 <details>
+  
 <summary><strong>Atmospheric data - Hadley circulation</strong></summary>
+
 ```python
   
 import xarray as xr
 import numpy as np
 ```
+
 </details> 
 
+
+## Oceanic data
 <details>
+
 <summary><strong>Oceanic data - Regrid</strong></summary>
+
 ```python
 import xesmf as xe
 import xarray as xr
@@ -56,7 +65,12 @@ sst = ds['TEMP'].isel(z_t=0)
 sst_reg = read_data(sst)
 ```
 
-</details><details> <summary><strong>Oceanic data - SST trend</strong></summary>
+</details>
+
+<details> 
+  
+<summary><strong>Oceanic data - SST trend</strong></summary>
+
 ```python
 # Calculate SST trend over time
 import xarray as xr
@@ -64,10 +78,9 @@ import numpy as np
 
 ds = xr.open_dataset('/your_path/xxxx_pop.h.1850-01.nc')
 sst = ds['TEMP'].isel(z_t=0)
-
 ```
-</details> 
 
+</details>
 
 
 
