@@ -148,3 +148,10 @@ plt.show()
 </div>
 
 ---
+## References
+
+Some of the code snippets are adapted or excerpted from the following references, **shared here purely for educational and non-commercial purposes**.  
+If you are the original author and prefer not to have your content included, please feel free to contact me and I will remove it promptly. Thank you for your understanding!
+
+- https://nordicesmhub.github.io/NEGI-Abisko-2019/training/example_NorthPolarStereo_projection.html
+- Additional sources to be added
