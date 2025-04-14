@@ -41,3 +41,29 @@
     "vendor/font-awesome/brands",
     "vendor/magnific-popup/magnific-popup"
 ;
+
+
+pre code {
+  display: block;
+  padding: 1em;
+  background-color: #f5f5f5;
+  color: #333;
+  overflow-x: auto;
+  border-radius: 6px;
+  line-height: 1.5;
+  font-size: 0.95em;
+  font-family: Consolas, Monaco, "Courier New", monospace;
+}
+
+details.code-toggle {
+  margin: 1em 0;
+  padding: 0.75em 1em;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fafafa;
+}
+
+details.code-toggle summary {
+  font-weight: bold;
+  cursor: pointer;
+}
