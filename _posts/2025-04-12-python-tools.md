@@ -144,7 +144,7 @@ plt.show()
 <div style="display: flex; justify-content: center; gap: 10px;">
   <img src="/images/post/python-tools/sst_trend_plate.png" alt="SST Trend Plate" style="width: 30%;">
   <img src="/images/post/python-tools/prect_ano.1301.019-2040-2070.png" alt="Precip anomaly" style="width: 30%;">
-  <img src="/images/post/python-tools/figure_gpm_SH_inNH.png" alt="GPM SH in NH" style="width: 30%;">
+  <img src="/images/post/python-tools/figure_gpm_SH_inNH.png" alt="GPM SH in NH" style="width: 17%;">
 </div>
 
 ---
