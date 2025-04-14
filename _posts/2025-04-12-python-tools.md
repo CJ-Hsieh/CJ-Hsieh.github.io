@@ -12,21 +12,20 @@ Some of the Python codes are attached to help process climate model data.
 
 ## Atmospheric data
 
-
-<div class="code-toggle">
-<details>
+<details class="code-toggle">
 <summary><strong>Walker circulation</strong></summary>
 
-```python
+<pre><code class="language-python">
 # Walker circulation example code
 import xarray as xr
 import numpy as np
 # Placeholder for walker cell diagnostics
 print("Walker circulation diagnostics complete")
-```
-</details> </div>
+</code></pre>
 
-<details>
+</details>
+
+<details>  
 <summary><strong>Atmospheric data - Hadley circulation</strong></summary>
 
 ```python
