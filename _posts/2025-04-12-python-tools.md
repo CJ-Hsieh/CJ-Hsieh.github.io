@@ -28,11 +28,11 @@ print("Walker circulation diagnostics complete")
 <details>  
 <summary><strong>Atmospheric data - Hadley circulation</strong></summary>
 
-```python
+<pre><code class="language-python">
   
 import xarray as xr
 import numpy as np
-```
+</code></pre>
 
 </details> 
 
@@ -45,7 +45,7 @@ import numpy as np
 
 <summary><strong>Oceanic data - Regrid</strong></summary>
 
-```python
+<pre><code class="language-python">
 import xesmf as xe
 import xarray as xr
 import numpy as np
@@ -64,7 +64,7 @@ ds = xr.open_dataset('/your_path/xxxx_pop.h.1850-01.nc')
 sst = ds['TEMP'].isel(z_t=0)
 
 sst_reg = read_data(sst)
-```
+</code></pre>
 
 </details>
 
@@ -72,14 +72,14 @@ sst_reg = read_data(sst)
   
 <summary><strong>Oceanic data - SST trend</strong></summary>
 
-```python
+<pre><code class="language-python">
 # Calculate SST trend over time
 import xarray as xr
 import numpy as np
 
 ds = xr.open_dataset('/your_path/xxxx_pop.h.1850-01.nc')
 sst = ds['TEMP'].isel(z_t=0)
-```
+</code></pre>
 
 </details>
 
