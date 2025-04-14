@@ -25,7 +25,7 @@ print("Walker circulation diagnostics complete")
 
 </details>
 
-<details>  
+<details class="code-toggle">
 <summary><strong>Atmospheric data - Hadley circulation</strong></summary>
 
 <pre><code class="language-python">
@@ -41,8 +41,8 @@ import numpy as np
 </p>
 
 ## Oceanic data
-<details>
 
+<details class="code-toggle">
 <summary><strong>Oceanic data - Regrid</strong></summary>
 
 <pre><code class="language-python">
@@ -68,8 +68,8 @@ sst_reg = read_data(sst)
 
 </details>
 
-<details> 
-  
+
+<details class="code-toggle">  
 <summary><strong>Oceanic data - SST trend</strong></summary>
 
 <pre><code class="language-python">
