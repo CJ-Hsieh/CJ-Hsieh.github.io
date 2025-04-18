@@ -25,10 +25,6 @@ import numpy as np
 print("Walker circulation diagnostics complete")
 </code></pre>
 
-```python
-print('Hello World!')
-```
-
 </details>
 
 <details class="code-toggle">
@@ -114,8 +110,6 @@ import cartopy
 <details class="code-toggle">
 <summary><strong>South Polar projection</strong></summary>
 
-Reference: https://nordicesmhub.github.io/NEGI-Abisko-2019/training/example_NorthPolarStereo_projection.html
-
 <pre><code class="language-python">
 def sp_map(*nrs, projection=ccrs.PlateCarree(), **kwargs):
     return plt.subplots(*nrs, subplot_kw={'projection': projection}, **kwargs)
@@ -152,6 +146,26 @@ plt.show()
   <img src="/images/post/python-tools/figure_gpm_SH_inNH.png" alt="GPM SH in NH" style="width: 17%;">
 </div>
 
+## Some useful plot setting
+<details class="code-toggle">
+<summary><strong>Multi-ticks</strong></summary>
+
+<pre><code class="language-python">
+from matplotlib.ticker import MultipleLocator, FormatStrFormatter
+  
+minor_locator = MultipleLocator(15)
+plt.gca().xaxis.set_minor_locator(minor_locator)
+plt.xticks(np.arange(135,270.1,45),labels=['135E','180','135W','90W'],fontsize=16,weight='bold')
+plt.gca().xaxis.set_tick_params(which='minor', length=5) 
+plt.gca().xaxis.set_tick_params(which='major', width=1, length=10)
+
+minor_locator = MultipleLocator(20)
+plt.gca().yaxis.set_minor_locator(minor_locator)
+plt.yticks(np.arange(0,1000.1,100),fontsize=16,weight='bold')
+plt.gca().yaxis.set_tick_params(which='minor', length=5) 
+plt.gca().yaxis.set_tick_params(which='major', width=1, length=10)
+</code></pre>
+</details>
 ---
 ## References
 
