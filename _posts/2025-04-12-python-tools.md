@@ -24,6 +24,11 @@ import numpy as np
 # Placeholder for walker cell diagnostics
 print("Walker circulation diagnostics complete")
 </code></pre>
+
+```python
+print('Hello World!')
+```
+
 </details>
 
 <details class="code-toggle">
