@@ -293,6 +293,11 @@ plt.show()
 </code></pre>
 </details>
 
+<p align="center">
+  <img src="/images/post/python-tools/fig_pc1_sst-1900-2000.png" width="45%">
+  <img src="/images/post/python-tools/fig_ssttau_regress_PC1-1900-2000.png" width="45%">
+</p>
+
 ---
 
 ## 🌍 Projection examples
