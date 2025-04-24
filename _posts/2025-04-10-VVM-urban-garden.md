@@ -8,47 +8,46 @@ tags:
   - convection
 ---
 
-This is the summer program research advised by Prof. Chien-Ming Wu.
+## 🌆🌱 Preface: Grass or Concrete — Who Wins the Rain Game?
 
-🌆🌱 **Grass or Concrete — Who Wins the Rain Game?**
-
-Let’s imagine this:  
 Grasslands can *breathe* — they release moisture into the air. Concrete? Not so much.  
 So, if you mix both in a city, where would you expect it to rain more?  
 **The grass, right? It’s wetter!**  
 Well... not quite.
 
 Turns out, **the atmosphere has its own ideas**. It organizes wind and clouds in ways that sometimes **make it rain over the driest part — the city itself**.
+Please see my undergraduate summer program research advised by Prof. Chien-Ming Wu.
 
 ---
 
 ## 🔬 The Summer We Simulated a Virtual City
 
-This was a summer research project with Prof. Chien-Ming Wu, using a cloud-resolving model called **VVM** to explore how surface heterogeneity affects **diurnal convection** — the daily build-up of clouds and rain.
+We used a cloud-resolving model called **VVM** to explore how surface heterogeneity affects **diurnal convection** — the daily build-up of clouds and rain.
 
 We designed a world made of:
 - 256 × 256 km domain
 - 2 km horizontal resolution
-- Sun heating everything equally ☀️
+- Sun heating everything equally 
 
-Then we tested:
+**Then we tested:**
 - All grass (control 🌿)
-- Urban09 (a small city center)
-- Urban32 and Urban46 (increasing urban sprawl)
+- (a) Urban09 (a small city center)
+- (b) Urban32 (City becomes larger!)
+- (c) Urban46 (Only a park locates in center domain)
 
-![Experiment setup: Grass vs. concrete blocks](/images/post/VVM-urban-garden/exp_setup.png)
+<img src="/images/post/VVM-urban-garden/exp_setup.png" alt="Experiment setup: Grass vs. concrete blocks" width="60%">
 
 ---
 
 ## 🌡️ Grass Cools, Concrete Cooks
 
 Using the **Bowen ratio** — the balance between sensible and latent heat — we found:
-- Grass surfaces evaporate, releasing **moisture** and cooling the air.
+- When the grass areas decrease, the LH also decreases.
 - Concrete heats up, dries out, and makes the air **hotter but drier**.
 
 More urban = more sensible heat = stronger surface heating, but less moisture.
 
-![Bowen ratio: Latent vs. sensible heat](/images/post/VVM-urban-garden/figure_wqv_wth.png)
+<img src="/images/post/VVM-urban-garden/figure_wqv_wth.png" alt="Bowen ratio: Latent vs. sensible heat" width="60%">
 
 ---
 
@@ -59,9 +58,7 @@ That works in the control run. But once cities come in, the game changes.
 
 As cities expand:
 - Cloud tops **get lower**, and rain forms **later** in the day.
-- Rain doesn’t fall where it’s moist — it **converges over the dry concrete**.
-
-Why? The surface temperature and moisture contrast sets up **sea breeze-like circulations**, pulling air inward from grass to city.
+- The boundary layer develops later
 
 <div style="display: flex; gap: 10px;">
   <img src="/images/post/VVM-urban-garden/figure_mse.png" alt="MSE and boundary layer" width="48%">
@@ -75,6 +72,9 @@ Why? The surface temperature and moisture contrast sets up **sea breeze-like cir
 The result?  
 **Rain tends to form over the city**, even though it’s drier.
 
+Why? The wind field in the morning shows surface temperature and moisture contrast sets up **sea breeze-like circulations**, pulling wetter air inward from grass to city.
+Then in the afternoon, it rains over city, accompanying with wind divergence.
+
 This behavior flips our intuition — it’s not "wet places get wetter."  
 Instead, the **atmosphere organizes around gradients** in heat and moisture, favoring convergence and upward motion over **urban cores**.
 
@@ -86,8 +86,8 @@ Instead, the **atmosphere organizes around gradients** in heat and moisture, fav
 
 ## 🧠 Bigger Picture
 
-This research highlights how **land-atmosphere feedbacks** shape local rainfall.  
-In the future, climate models — and city planners — may need to consider not just *how* cities grow, but *how* they nudge the sky above them.
+This research highlights how **land-atmosphere feedbacks** and **surface heterogeneity** shape local rainfall.  
+The atmosphere tends to homogeneize the moisture distribution through rainfall over drier regions.
 
 ---
 
