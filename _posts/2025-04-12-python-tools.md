@@ -21,18 +21,65 @@ Some of the Python codes are attached to help process climate model data.
 # Walker circulation example code
 import xarray as xr
 import numpy as np
-# Placeholder for walker cell diagnostics
-print("Walker circulation diagnostics complete")
+
 </code></pre>
 
 </details>
 
 <details class="code-toggle">
 <summary><strong>Hadley circulation</strong></summary>
+The hytoP process is used to convert hybrid sigma levels (commonly used in GCM output) into standard pressure levels. If you are using reanalysis data such as ERA5, this step can be skipped — you may directly use the CALC_PSI function.
+  
+The example code requires the **Ngl** package. You can install it using the following command in a conda environment:
+<pre><code class="language-bash">
+conda create --name pyn_env --channel conda-forge/label/cf201901 pynio pyngl
+</code></pre>
 
 <pre><code class="language-python">
 import xarray as xr
 import numpy as np
+import Ngl
+
+a = 6378e3
+g = 9.81    
+
+p0   = 1000 # unit: hPa
+plev = np.array([1000., 925., 850., 700., 500., 400., 300., 250., 200., 150., 100., \
+                 70., 50., 30., 20., 10., 7., 5., 3., 2., 1.])
+nplv = len(plev)
+  
+def CALC_PSI(data):
+    # =============== hytoP ===================
+    V = data['V'] 
+    hyam, hybm, PS, lat = data['hyam'], data['hybm'], data['PS'], data['lat']
+    V  = Ngl.vinth2p(V, hybm, hyam, plev, PS, intyp=1, p0=p0, ii=1, kxtrp=True)
+    print('h2p finished')
+    # =========================================
+  
+    nmo, nlat, nlon = len(data['time']), len(data['lat']), len(data['lon'])
+    psi = np.zeros((nmo, nplv, nlat))
+    A   = 2*np.pi*a*np.cos(lat*np.pi/180)/g
+    psi[:,0,:] = 0
+    for i in range(nmo):
+        p  = np.tile(plev, (nlon, nlat, 1)).T    # p (lon,lat,lev).T = (lev,lat,lon)
+        ps = np.tile(PS[i,:,:], (nplv, 1, 1))    # ps(lev,lat,lon)
+        v  = np.where(ps>p, V[i,:,:,:], 0)       # V[i,:,:,:] = (lev,lat,lon)
+        v_xz  = np.nanmean(v, axis=2)            #v_xz = (lev,lat)
+        ### Calc Psi
+        for k in range(1, nplv):
+            trap = (v_xz[k,:]+v_xz[k-1,:])*(plev[k]-plev[k-1])/2
+            psi[i,k,:] = psi[i,k-1,:]+A*trap
+        ### Removing Residual
+        psi_res = psi[i,-1,:]
+        dP      = plev[:-1]-plev[1:]
+        weight  = np.zeros((nplv))
+        weight[1:] = np.cumsum(dP, axis=0)/plev[0]
+        dist       = np.matmul(np.tile(weight, (1,1)).T, np.tile(psi_res, (1,1)))
+        psi[i,:,:] = psi[i,:,:]-dist
+    return psi
+
+ds = xr.open_dataset('xxxx_cam.h0.1850-01.nc')
+psi = CALC_PSI(ds)
 </code></pre>
 </details>
 
@@ -74,18 +121,65 @@ sst_reg = read_data(sst)
 <summary><strong>Calculate SST trend</strong></summary>
 
 <pre><code class="language-python">
-# Calculate SST trend over time
-import xarray as xr
 import numpy as np
+import xarray as xr
+import matplotlib.pyplot as plt 
+import cartopy.crs as ccrs
+import cartopy
+import cmaps
+from matplotlib.ticker import MultipleLocator
+import matplotlib as mpl
+import glob
 
-ds = xr.open_dataset('/your_path/xxxx_pop.h.1850-01.nc')
-sst = ds['TEMP'].isel(z_t=0)
+file_list = sorted(glob.glob(path+'sosstsst_ORAS5_1m_*_r1x1.nc'))
+ds = xr.open_mfdataset(file_list)
+SST = ds['sosstsst']
+lat, lon = SST.lat, SST.lon
+
+s = SST.where(SST!=0, np.nan)
+s = s.groupby('time_counter.year').mean().values
+trend = np.apply_along_axis(lambda x: np.polyfit(range(len(x)), x, 1)[0], axis=0, arr=s)
+
+level = np.arange(-0.04, 0.041, 0.005)
+cmap = cmaps.BlueDarkRed18
+
+plt.figure(figsize=(10, 6))
+ax = plt.axes(projection=ccrs.Robinson(central_longitude=180))
+ax.coastlines()
+ax.add_feature(cartopy.feature.LAND, facecolor='lightgray')
+
+plt.contourf(lon, lat, trend, levels=level,
+             cmap=cmap, transform=ccrs.PlateCarree(), extend='both')
+
+cb = plt.colorbar(shrink=0.7,ticks=level[::4])
+cb.ax.get_yaxis().set_tick_params(length=0,labelsize=14)
+
+gl = ax.gridlines(draw_labels=True, xlocs=np.arange(-180, 180, 90), ylocs=np.arange(-90, 91, 30),ls='--')
+gl.top_labels = False
+gl.xlabel_style = {'size':14}
+gl.ylabel_style = {'size':14}
+
+plt.title('1979-2018 SST trend [K/yr]',fontsize=16,weight='bold')
+plt.savefig('sst_trend_robin.png',dpi=300,bbox_inches='tight')
+plt.show()
+
 </code></pre>
 </details>
 
 <p align="center">
   <img src="/images/post/python-tools/sst_trend_robin.png" alt="SST trend" width="50%">
 </p>
+
+<details class="code-toggle">
+<summary><strong>EOF analysis</strong></summary>
+
+<pre><code class="language-python">
+import xesmf as xe
+import xarray as xr
+import numpy as np
+
+</code></pre>
+</details>
 
 ---
 
