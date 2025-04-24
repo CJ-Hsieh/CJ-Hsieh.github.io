@@ -29,8 +29,12 @@ Email: jerry16787@gmail.com
 
 ## Experience  
 
+### 2025
+- **Teaching Assistant**, *Climate Science* (2025 Spring)
+- **Teaching Assistant**, *Ocean-Atmosphere Interaction and Ocean Climate* (2025 Spring)
+
 ### 2024  
-- **Teaching Assistant**, *Statistics with Meteorology Application* (Sep. 2024)  
+- **Teaching Assistant**, *Statistics with Meteorology Application* (2024 Fall)  
 - **Dean’s List Award** (Top 5% GPA) (Jun. 2024)  
 
 ### 2023  
