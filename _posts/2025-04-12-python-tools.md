@@ -174,9 +174,121 @@ plt.show()
 <summary><strong>EOF analysis</strong></summary>
 
 <pre><code class="language-python">
-import xesmf as xe
-import xarray as xr
 import numpy as np
+import matplotlib.pyplot as plt
+import xarray as xr
+import netCDF4 as nc
+import matplotlib.colors as mcolors
+from matplotlib import gridspec
+import pandas as pd
+import cartopy.crs as ccrs
+import cartopy
+import glob
+import cmaps
+import xeofs as xe
+from matplotlib.patches import Rectangle
+
+# ========= Process SST data ==========================
+ds  = xr.open_mfdataset(f'b.e21.BSSP370smbb.f09_g17.LE2-{en_name}.cam.h0.SST.*.nc')
+sst = ds['SST']
+sst['time'] = xr.cftime_range(start='1850-01-01',periods=len(sst['time']),freq='MS')
+lat, lon = sst.lat, sst.lon
+s = sst.where(sst!=0, np.nan)
+sst_cli  = s.sel(time=slice('1900-01','1950-12'))
+sst_ano = s.groupby('time.month') - sst_cli.groupby('time.month').mean('time')
+
+# ======== Process wind data ==========================
+ds = xr.open_mfdataset(f'TAUX_B*smbb.{en_name}.nc')
+taux = -ds['TAUX']
+taux_cli  = taux.sel(time=slice('1900-01','1950-12'))
+taux_ano = taux.groupby('time.month') - taux_cli.groupby('time.month').mean('time')
+
+ds = xr.open_mfdataset(tau_path + f'TAUY_B*smbb.{en_name}.nc')
+tauy = -ds['TAUY']
+tauy_cli  = tauy.sel(time=slice('1900-01','1950-12'))
+tauy_ano = tauy.groupby('time.month') - tauy_cli.groupby('time.month').mean('time')
+
+  
+# =====  Choosing box and time period ==================
+lat1, lat2, lon1, lon2 = -70, 70, 120, 280
+beg_yr, end_yr = 1900, 2000
+s_rm = sst_ano.sel(time=slice(f'{beg_yr}',f'{end_yr}'))
+taux_rm = taux_ano.sel(time=slice(f'{beg_yr}',f'{end_yr}'))
+tauy_rm = tauy_ano.sel(time=slice(f'{beg_yr}',f'{end_yr}'))
+
+# ======================= Calc EOF ======================
+s_rm_input = s_rm.sel(lat=slice(lat1,lat2), lon=slice(lon1,lon2))
+model = xe.models.EOF(n_modes=5, use_coslat=True)
+fit = model.fit(s_rm_input, dim=('time'))
+ratio = model.explained_variance_ratio()
+explained_var = ratio * 100
+components = model.components()
+scores = model.scores()
+eof = np.asarray(components)
+
+# ==================== Plot PC ==========================
+mode = 1
+pc1 = scores[mode-1, :] 
+pc1_normalized = (pc1 - np.nanmean(pc1)) / np.nanstd(pc1)
+time = np.linspace(beg_yr, end_yr, len(s_rm['time']))
+  
+plt.figure(figsize=(10, 4))
+plt.plot(time, pc1_normalized, label=f'PC{mode} ({explained_var[mode-1]:.2f}%)', color='b')
+plt.axhline(0, color='k', linewidth=0.8, linestyle='--')
+
+plt.xlabel("Time", fontsize=14)
+plt.ylabel("Amplitude", fontsize=14)
+plt.title(f"PC{mode} Time Series", fontsize=16, weight='bold')
+plt.ylim(-3,3)
+plt.xlim(beg_yr, end_yr)
+plt.xticks(np.arange(beg_yr, end_yr+1, 20), fontsize=14)
+plt.yticks(fontsize=14)
+
+plt.legend(fontsize=14)
+#plt.savefig(f'new_eof/fig_pc{mode}_sst-{beg_yr}-{end_yr}.png',dpi=300,bbox_inches='tight')
+plt.show()
+
+# =============== Plot regression map ====================
+mode = 1
+pc1 = scores[mode-1, :]  
+pc1_normalized = (pc1 - np.nanmean(pc1)) / np.nanstd(pc1)
+
+regression = (s_rm * pc1_normalized.values[:, np.newaxis, np.newaxis]).mean(dim='time') / np.nanvar(pc1_normalized)
+reg_taux = (taux_rm * pc1_normalized.values[:, np.newaxis, np.newaxis]).mean(dim='time') / np.nanvar(pc1_normalized)
+reg_tauy = (tauy_rm * pc1_normalized.values[:, np.newaxis, np.newaxis]).mean(dim='time') / np.nanvar(pc1_normalized)
+
+cmap = cmaps.NCV_blu_red
+level = np.linspace(-2, 2., 21) 
+ticks = np.arange(-2, 2.01, 0.4)
+
+plt.figure(figsize=(10, 8))
+ax = plt.axes(projection=ccrs.Robinson(central_longitude=150))
+
+plt.contourf(lon, lat, regression, cmap=cmap, transform=ccrs.PlateCarree(), levels=level, extend='both',alpha=0.9)
+cbar = plt.colorbar(shrink=0.5, ticks=ticks)
+cbar.set_label("[°C/std]",fontsize=14)
+cbar.ax.get_yaxis().set_tick_params(length=0, labelsize=14)
+
+inv = 8
+q = plt.quiver(lon[::inv], lat[20:-20:inv], reg_taux.values[20:-20:inv, ::inv], reg_tauy.values[20:-20:inv, ::inv], 
+              transform=ccrs.PlateCarree(),scale=0.3, color='k',width=0.002)
+
+plt.title(f"SST regression map onto PC{mode}", weight='bold', fontsize=16)
+plt.title(f'{beg_yr}-{end_yr}', loc='right', fontsize=14)
+plt.text(0.95, 0.95, f'{explained_var[mode-1]:.2f}%', 
+        transform=ax.transAxes, 
+        fontsize=14, ha='right', va='top', color='black',
+        bbox=dict(facecolor='white', alpha=0.7))
+
+ax.coastlines()
+ax.add_feature(cartopy.feature.LAND, facecolor='lightgray',zorder=2)
+rect = Rectangle(
+    (lon1, lat1),  lon2 - lon1,   lat2 - lat1, 
+    linewidth=2, edgecolor='black', facecolor='none', transform=ccrs.PlateCarree())
+ax.add_patch(rect)
+
+plt.savefig(f'new_eof/fig_ssttau_regress_PC{mode}-{beg_yr}-{end_yr}.png', dpi=300, bbox_inches='tight')
+plt.show()
 
 </code></pre>
 </details>
