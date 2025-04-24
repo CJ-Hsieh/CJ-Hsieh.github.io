@@ -432,7 +432,7 @@ plt.scatter(yy,xx, color='k', s=15, alpha=0.2)
 </details>
 
 <p align="center">
-  <img src="/images/post/psi_Annual_trend.png" alt="PSI trend" width="50%">
+  <img src="/images/post/python-tools/psi_Annual_trend.png" alt="PSI trend" width="50%">
 </p>
 
 ---
