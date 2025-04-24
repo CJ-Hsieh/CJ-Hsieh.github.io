@@ -403,6 +403,38 @@ plt.gca().yaxis.set_tick_params(which='major', width=1, length=10)
 </code></pre>
 </details>
 
+<details class="code-toggle">
+<summary><strong>Statistical test</strong></summary>
+
+<pre><code class="language-python">
+def linfit(x):
+    if np.all(np.isnan(x)):  # 檢查 NaN
+        return np.nan, np.nan
+    slope, _, _, p_value, _ = linregress(years, x)
+    return slope, p_value
+
+trend, p_values = xr.apply_ufunc(
+      linfit, 
+      u_annual,
+      input_core_dims=[['year']],
+      output_core_dims=[[], []],  # 分開返回趨勢與 p-value
+      vectorize=True)
+  
+significant = p_values < 0.05
+x,y = np.meshgrid(lev, lat) 
+x_int, y_int = 20, 1
+x,y   = x[::x_int,1::y_int], y[::x_int,1::y_int]
+significant_T = significant[1::y_int, ::x_int].T
+xx,yy = x[significant_T], y[significant_T]
+plt.scatter(yy,xx, color='k', s=15, alpha=0.2)
+
+</code></pre>
+</details>
+
+<p align="center">
+  <img src="/images/post/psi_Annual_trend.png" alt="PSI trend" width="50%">
+</p>
+
 ---
 ## References
 
