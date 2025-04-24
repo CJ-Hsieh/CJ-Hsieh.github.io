@@ -15,18 +15,6 @@ Some of the Python codes are attached to help process climate model data.
 ## 🌀 Atmospheric data
 
 <details class="code-toggle">
-<summary><strong>Walker circulation</strong></summary>
-
-<pre><code class="language-python">
-# Walker circulation example code
-import xarray as xr
-import numpy as np
-
-</code></pre>
-
-</details>
-
-<details class="code-toggle">
 <summary><strong>Hadley circulation</strong></summary>
 The hytoP process is used to convert hybrid sigma levels (commonly used in GCM output) into standard pressure levels. If you are using reanalysis data such as ERA5, this step can be skipped — you may directly use the CALC_PSI function.
   
@@ -306,7 +294,20 @@ plt.show()
 <summary><strong>PlateCarree (basic projection)</strong></summary>
 
 <pre><code class="language-python">
-import xesmf as xe
+level = np.arange(-0.04,0.041,0.005)
+cmap  = cmaps.BlueDarkRed18
+
+plt.figure(figsize=(10, 6))
+ax = plt.axes(projection=ccrs.PlateCarree(central_longitude=180))
+ax.coastlines()
+ax.add_feature(cartopy.feature.LAND, facecolor='lightgray')
+plt.contourf(lon, lat, trend, levels= level,
+             cmap=cmap, transform=ccrs.PlateCarree(),extend='both')
+
+cb = plt.colorbar(shrink=0.7,ticks=level[::4])
+cb.ax.get_yaxis().set_tick_params(length=0,labelsize=14)
+plt.savefig('sst_trend_plate.png',dpi=300,bbox_inches='tight')
+plt.show()  
 </code></pre>
 </details>
 
@@ -314,7 +315,31 @@ import xesmf as xe
 <summary><strong>Robinson projection</strong></summary>
 
 <pre><code class="language-python">
-import cartopy
+level = np.arange(-0.04, 0.041, 0.005)
+cmap = cmaps.BlueDarkRed18
+
+plt.figure(figsize=(10, 6))
+
+ax = plt.axes(projection=ccrs.Robinson(central_longitude=180))
+ax.coastlines()
+ax.add_feature(cartopy.feature.LAND, facecolor='lightgray')
+
+plt.contourf(lon, lat, trend, levels=level,
+             cmap=cmap, transform=ccrs.PlateCarree(), extend='both')
+
+cb = plt.colorbar(shrink=0.7,ticks=level[::4])
+cb.ax.get_yaxis().set_tick_params(length=0,labelsize=14)
+  
+plt.title('1979-2018 SST trend [K/yr]',fontsize=16,weight='bold')
+
+gl = ax.gridlines(draw_labels=True, xlocs=np.arange(-180, 180, 90), ylocs=np.arange(-90, 91, 30),ls='--')
+gl.top_labels = False
+gl.xlabel_style = {'size':14}
+gl.ylabel_style = {'size':14}
+
+plt.savefig('sst_trend_robin.png',dpi=300,bbox_inches='tight')
+plt.show()
+
 </code></pre>
 </details>
 
@@ -385,4 +410,4 @@ Some of the code snippets are adapted or excerpted from the following references
 If you are the original author and prefer not to have your content included, please feel free to contact me and I will remove it promptly. Thank you for your understanding!
 
 - https://nordicesmhub.github.io/NEGI-Abisko-2019/training/example_NorthPolarStereo_projection.html
-- Additional sources to be added
+- https://xeofs.readthedocs.io/en/latest/content/user_guide/quickstart.html
