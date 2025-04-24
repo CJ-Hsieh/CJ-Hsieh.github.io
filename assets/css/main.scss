@@ -67,3 +67,27 @@ details.code-toggle summary {
   font-weight: bold;
   cursor: pointer;
 }
+
+/* copy button */
+.copy-button {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  background: #e2e8f0;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.75em;
+  padding: 0.25em 0.5em;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.copy-button:hover {
+  opacity: 1;
+}
+
+pre {
+  position: relative; /* 讓按鈕對齊 pre 區塊 */
+}
+
