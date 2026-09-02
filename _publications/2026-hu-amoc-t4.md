@@ -1,7 +1,7 @@
 ---
 title: "Protracted ocean circulation slowdown drove exceptional ice-sheet melting during ice age termination IV"
 collection: publications
-category: manuscript
+category: manuscripts
 permalink: /publication/2026-hu-amoc-t4
 date: 2026-01-01
 venue: "Nature Communications"
