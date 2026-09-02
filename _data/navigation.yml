@@ -20,6 +20,9 @@ main:
   - title: "CV"
     url: /cv/
 
+  - title: "Animation"
+    url: /animation/ 
+  
   - title: "Contact"
     url: /contact/
     
