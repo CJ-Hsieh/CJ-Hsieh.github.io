@@ -29,14 +29,16 @@
 
     {% if post.collection == 'publications' %}
 
-      <p class="archive__item-title" itemprop="headline">
+      <p class="publication-citation" itemprop="headline">
         {{ post.authors | replace: "Hsieh, C.-J.", "<strong>Hsieh, C.-J.</strong>" }}
-        <a href="{{ base_path }}{{ post.url }}" rel="permalink">"{{ title | remove: '"' }}."</a>
+        <a href="{{ base_path }}{{ post.url }}" rel="permalink">
+          "{{ post.title }}"
+        </a>
         <i>{{ post.venue }}</i>.
       </p>
 
       {% if post.excerpt %}
-        <p class="archive__item-excerpt" itemprop="description">
+        <p class="publication-excerpt" itemprop="description">
           {{ post.excerpt | markdownify | remove: '<p>' | remove: '</p>' }}
         </p>
       {% endif %}
